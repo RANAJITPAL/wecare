@@ -1,5 +1,6 @@
 package com.wecare.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,25 +15,45 @@ public class UserEntity {
 	@Id
 	@GenericGenerator(name = "user_id", strategy = "com.wecare.utility.UserIdGenerator")
     @GeneratedValue(generator = "user_id")  
+	@Column(name = "userid")
 	private String userId;
 	
+	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "gender")
 	private String gender;
+	
+	@Column(name = "date_of_birth")
 	private String dateOfBirth;
-	private Long mobileNumber;
+	
+	@Column(name = "mobile_number")
+	private String mobileNumber;
+	
+	@Column(name = "email")
 	private String email;
-	private Long pincode;
+	
+	@Column(name = "pincode")
+	private String pincode;
+	
+	@Column(name = "city")
 	private String city;
+	
+	@Column(name = "state")
 	private String state;
+	
+	@Column(name = "country")
 	private String country;
 	
 	public UserEntity() {
 		super();
 	}
 
-	public UserEntity(String name, String password, String gender, String dateOfBirth, Long mobileNumber,
-			String email, Long pincode, String city, String state, String country) {
+	public UserEntity(String name, String password, String gender, String dateOfBirth, String mobileNumber,
+			String email, String pincode, String city, String state, String country) {
 		super();
 		this.name = name;
 		this.password = password;
@@ -86,11 +107,11 @@ public class UserEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public Long getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(Long mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
@@ -102,11 +123,11 @@ public class UserEntity {
 		this.email = email;
 	}
 
-	public Long getPincode() {
+	public String getPincode() {
 		return pincode;
 	}
 
-	public void setPincode(Long pincode) {
+	public void setPincode(String pincode) {
 		this.pincode = pincode;
 	}
 
