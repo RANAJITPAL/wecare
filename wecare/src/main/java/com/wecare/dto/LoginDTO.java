@@ -2,16 +2,10 @@ package com.wecare.dto;
 
 public class LoginDTO {
 	
-	private String userId;
 	private String password;
+	private String userId;
 	
-	
-	public LoginDTO() {
-		super();
-	}
-
-
-	public LoginDTO(String userId, String password) {
+	public LoginDTO(String password, String userId) {
 		super();
 		this.userId = userId;
 		this.password = password;
@@ -36,6 +30,11 @@ public class LoginDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+
+	@Override
+	public String toString() {
+		return "LoginDTO [ password=" + password + ", userId=" + userId + "]";
+	}
+
 }
