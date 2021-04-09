@@ -1,59 +1,27 @@
-package com.wecare.entity;
+package com.wecare.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
-@Entity
-@Table(name = "usertable")
-public class UserEntity {
+public class UserDTO {
 	
-	@Id
-	@GenericGenerator(name = "user_id", strategy = "com.wecare.utility.UserIdGenerator")
-    @GeneratedValue(generator = "user_id")  
-	@Column(name = "userid")
-	private String userId;
+private String userId;
 	
-	@Column(name = "name")
 	private String name;
-	
-	@Column(name = "password")
 	private String password;
-	
-	@Column(name = "gender")
 	private String gender;
-	
-	@Column(name = "date_of_birth")
 	private String dateOfBirth;
-	
-	@Column(name = "mobile_number")
 	private String mobileNumber;
-	
-	@Column(name = "email")
 	private String email;
-	
-	@Column(name = "pincode")
 	private String pincode;
-	
-	@Column(name = "city")
 	private String city;
-	
-	@Column(name = "state")
 	private String state;
-	
-	@Column(name = "country")
 	private String country;
 	
-	public UserEntity() {
+	public UserDTO() {
 		super();
 	}
 
-	public UserEntity(String name, String password, String gender, String dateOfBirth, String mobileNumber,
-			String email, String pincode, String city, String state, String country) {
+	public UserDTO(String name, String password, String gender, String dateOfBirth, String mobileNumber, String email,
+			String pincode, String city, String state, String country) {
 		super();
 		this.name = name;
 		this.password = password;
@@ -154,12 +122,4 @@ public class UserEntity {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
-	@Override
-	public String toString() {
-		return "UserEntity [userId=" + userId + ", name=" + name + ", password=" + password + ", gender=" + gender
-				+ ", dateOfBirth=" + dateOfBirth + ", mobileNumber=" + mobileNumber + ", email=" + email + ", pincode="
-				+ pincode + ", city=" + city + ", state=" + state + ", country=" + country + "]";
-	}
-	
 }
