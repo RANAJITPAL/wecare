@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wecare.entity.CoachEntity;
-import com.wecare.entity.UserEntity;
 import com.wecare.service.CoachService;
-import com.wecare.service.UserService;
 
 @RestController
 public class CoachController {
