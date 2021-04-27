@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wecare.dto.LoginDTO;
 import com.wecare.entity.CoachEntity;
 import com.wecare.exception.ResourceNotFoundException;
 import com.wecare.repository.CoachRepository;
@@ -28,4 +29,11 @@ public class CoachService {
 		return coachRepository.findAll();
 	}
 	
+	public boolean loginCoach(LoginDTO loginDTO) {
+		CoachEntity coachEntity = coachRepository.findById(loginDTO.getId()).orElse(null);
+		if (coachEntity != null && coachEntity.getPassword().equals(loginDTO.getPassword())) {
+			return true;
+		}
+		return false;
+	}
 }

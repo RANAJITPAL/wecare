@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wecare.dto.LoginDTO;
 import com.wecare.entity.CoachEntity;
 import com.wecare.service.CoachService;
 
@@ -23,8 +24,15 @@ public class CoachController {
 		return ResponseEntity.ok().body(coachService.createCoach(coachEntity));
 	}
 	
-	@GetMapping("/coaches")
+	@GetMapping("/coaches/all")
 	public List<CoachEntity> getAllCoaches(){
 		return coachService.getAllCoaches();
 	}
+	
+	@PostMapping("/coaches/login")
+	public ResponseEntity<Boolean> loginUser(@RequestBody LoginDTO loginDTO) {
+		System.out.println(loginDTO.toString());
+		return ResponseEntity.ok().body(coachService.loginCoach(loginDTO));
+	}
+	
 }

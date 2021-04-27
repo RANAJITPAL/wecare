@@ -34,6 +34,7 @@ public class UserController {
 
 	@PostMapping("/users/login")
 	public ResponseEntity<Boolean> loginUser(@RequestBody LoginDTO loginDTO) {
+		System.out.println(loginDTO.toString());
 		return ResponseEntity.ok().body(userService.loginUser(loginDTO));
 	}
 	

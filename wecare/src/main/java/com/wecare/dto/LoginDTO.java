@@ -3,22 +3,21 @@ package com.wecare.dto;
 public class LoginDTO {
 	
 	private String password;
-	private String userId;
+	private String id;
 	
-	public LoginDTO(String password, String userId) {
+	public LoginDTO(String password, String id) {
 		super();
-		this.userId = userId;
+		this.id = id;
 		this.password = password;
 	}
 
-
-	public String getUserId() {
-		return userId;
+	public String getId() {
+		return id;
 	}
 
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 
@@ -34,7 +33,7 @@ public class LoginDTO {
 
 	@Override
 	public String toString() {
-		return "LoginDTO [ password=" + password + ", userId=" + userId + "]";
+		return "LoginDTO [ password=" + password + ", Id=" + id + "]";
 	}
 
 }
