@@ -1,5 +1,7 @@
 package com.wecare.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +28,9 @@ public class BookingService {
 	
 	public void cancelAppointment(String bookingId) {
 		bookingRepository.deleteById(bookingId);
+	}
+	
+	public List<BookingEntity> findByUserId(String userId) {
+		return bookingRepository.findByUserId(userId);
 	}
 }
