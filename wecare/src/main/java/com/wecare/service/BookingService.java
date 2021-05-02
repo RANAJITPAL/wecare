@@ -14,7 +14,17 @@ public class BookingService {
 	BookingRepository bookingRepository;
 	
 	public String bookAppointment(String userId, String coachId, String date, String slot){
-		
 		return bookingRepository.save(new BookingEntity(userId,coachId,date,slot)).toString()+"booked";
+	}
+	
+	public String rescheduleAppointment(String bookingId, String date, String slot) {
+		BookingEntity booking = bookingRepository.getOne(bookingId);
+		booking.setAppointmentDate(date);
+		booking.setSlot(slot);
+		return bookingRepository.save(booking).toString()+"changed successfully";
+	}
+	
+	public void cancelAppointment(String bookingId) {
+		bookingRepository.deleteById(bookingId);
 	}
 }
